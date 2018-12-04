@@ -3,7 +3,6 @@ var gulp = require('gulp'),
     browserSync = require('browser-sync'),
     autoprefixer = require('gulp-autoprefixer'),
     uglify = require('gulp-uglify'),
-    jshint = require('gulp-jshint'),
     header  = require('gulp-header'),
     rename = require('gulp-rename'),
     cssnano = require('gulp-cssnano'),
@@ -25,7 +24,7 @@ var banner = [
 ].join('');
 
 gulp.task('css', function () {
-    return gulp.src('src/scss/style.scss')
+    return gulp.src('src/scss/styles.scss')
     .pipe(plumber())
     .pipe(sass({
         errLogToConsole: true,
@@ -44,8 +43,6 @@ gulp.task('js',function(){
   gulp.src('src/js/**/*.js')
     .pipe(plumber())
     .pipe(concat('scripts.js'))
-    .pipe(jshint('.jshintrc'))
-    .pipe(jshint.reporter('default'))
     .pipe(header(banner, { package : package }))
     .pipe(gulp.dest('app/assets/js'))
     .pipe(uglify())
@@ -64,6 +61,20 @@ gulp.task('browser-sync', function() {
 });
 gulp.task('bs-reload', function () {
     browserSync.reload();
+});
+
+// gulp.task("default", function () {
+//     gulp.start("serve");
+//   });
+
+var gulp = require('gulp');
+var browserSync = require('browser-sync').create();
+
+gulp.task('sync', function() {
+ browserSync.init({
+ proxy: "my_project.dev",
+ files: "*.css,*.php,css/*css"
+});
 });
 
 gulp.task('default', ['css', 'js', 'browser-sync'], function () {

@@ -1,0 +1,78 @@
+body {
+    font-family: 'lato';
+}
+
+.capa {
+    margin: 0 auto;
+    background-image: url("img/katana_capa.png");
+
+}
+
+.blacktheme {
+    width: 20vw;
+    height: 100%;
+    background-color: #2D2D2D;
+    color: #ffffff;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    //position: fixed;//
+
+
+}
+
+.logo {
+    padding: 70px;
+}
+
+.categorias {
+    color: #E5C688;
+    margin: 0 auto;
+    width: 13vw;;
+    border-radius: 30px;
+
+    a {
+        display: block;
+        padding: 10px 0;
+
+        &:hover {
+            border-radius: 30px;
+            background-color: #E5C688;
+            color: #000000;
+        }
+    }
+
+
+    ul {
+        display: flex;
+        flex-direction: column;
+    }
+
+    li {
+        text-align: center;
+        display: block;
+        margin-bottom: 5px;
+    }
+
+}
+
+.logoEduzz {
+    margin-top: 170px;
+}
+
+.capa {
+    height: 100%;
+    margin-left: 268px;
+    background-size: cover;
+    background-image: url("../img/katana_capa.png");
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    h1 {
+        margin-right: 15vw;
+        @include font-size(28);
+        color:#E5C688;
+    }
+}
